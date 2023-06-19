@@ -1,0 +1,62 @@
+header {
+    background-color: steelblue;
+    padding: 1rem;
+}
+
+.MuiGrid-root {
+    padding: 0 !important; 
+}
+
+.header__logo, .header__menu, .header__cartWidget {
+    background-color: steelblue;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__logo__img {
+    width: 100%;
+    max-width: 115px;
+}
+
+.header__menu__icono {
+    width: 3rem;
+    height: 3rem;
+}
+
+.header__menu svg, .header__cartWidget svg{
+    width: 3rem;
+    height: 3rem;
+}
+
+.header__nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header__nav ul{ 
+    list-style: none;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.drawer__nav ul{
+    list-style: none;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header__nav ul li, .drawer__nav ul li {
+    margin: 1rem;
+    padding: 1rem;
+}
