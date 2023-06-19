@@ -1,6 +1,6 @@
 import NavBarContainer from "../../layout/navbar/NavBarContainer";
-import ItemFilter from "../../common/itemFilter/itemFilter";
-import ItemListContainer from "../../common/itemList/itemListContainer";
+import ItemFilter from "../../common/itemFilter/ItemFilter";
+import ItemListContainer from "../../common/itemList/ItemListContainer";
 import Button from '@mui/material/Button'
 import FooterContainer from "../../layout/footer/FooterContainer";
 
