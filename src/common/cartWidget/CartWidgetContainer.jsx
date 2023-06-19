@@ -3,7 +3,7 @@ import { Badge } from '@mui/material';
 
 const CartWidgetContainer = ({cantidadProductos}) => {
     return (
-        <Badge badgeContent={cantidadProductos} color="primary" showZero overlap="circular" aria-label={`Cantidad de productos en el carrito ${cantidadProductos}`}>
+        <Badge badgeContent={cantidadProductos} color="secondary" showZero overlap="circular" aria-label={`Cantidad de productos en el carrito ${cantidadProductos}`}>
             <ShoppingCartIcon />
         </Badge>
     )

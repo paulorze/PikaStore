@@ -4,9 +4,14 @@ import CartWidgetContainer from "../../common/cartWidget/CartWidgetContainer";
 import HambMenu from "../../common/hambMenu/HambMenu";
 import './NavBar.css';
 
-const NavBar = ({cantidadProductos, abrirMenu, openMenu}) => {
+
+
+const NavBar = ({cantidadProductos, abrirMenu, openMenu, theme}) => {
     return (
-        <header>
+        <header style={{
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.fuente.main
+        }}>
             <Grid container spacing={1}>
                 <Grid item xs={4} md={2} className="header__logo">
                         <img src="https://res.cloudinary.com/dsvffdexj/image/upload/v1687093670/pika-logo_tbebug.png" alt="Pika logo" className="header__logo__img"/>
@@ -15,12 +20,43 @@ const NavBar = ({cantidadProductos, abrirMenu, openMenu}) => {
                     display: {xs: 'none', md: 'flex'}
                 }} md={8}>
                     <nav className="header__nav">
-                        <ul>
-                            <li>Home</li>
-                            <li>Store</li>
-                            <li>About Us</li>
-                            <li>Contacto</li>
-                        </ul>
+                    <ul>
+                        <li>
+                            <a href="#" style={{
+                                color: theme.palette.fuente.main
+                            }}>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style={{
+                                color: theme.palette.fuente.main
+                            }}>
+                                Tattoo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style={{
+                                color: theme.palette.fuente.main
+                            }}>
+                                Store
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style={{
+                                color: theme.palette.fuente.main
+                            }}>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style={{
+                                color: theme.palette.fuente.main
+                            }}>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
                     </nav>
                 </Grid>
                 <Grid item xs={4} className="header__menu" onClick = {abrirMenu} sx = {{
@@ -46,7 +82,7 @@ const NavBar = ({cantidadProductos, abrirMenu, openMenu}) => {
                             <li>Contacto</li>
                         </ul>
                     </nav>
-                </Drawer>
+            </Drawer>
         </header>
     )
 }

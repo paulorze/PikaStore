@@ -1,5 +1,9 @@
 .filtrar {
     width: 100%;
+    padding: 1rem;
+}
+
+.filtrar__paper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

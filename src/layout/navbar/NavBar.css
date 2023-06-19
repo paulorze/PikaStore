@@ -1,5 +1,4 @@
 header {
-    background-color: steelblue;
     padding: 1rem;
 }
 
@@ -8,7 +7,6 @@ header {
 }
 
 .header__logo, .header__menu, .header__cartWidget {
-    background-color: steelblue;
     margin: 0;
     padding: 0;
     display: flex;
@@ -46,6 +44,20 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.header__nav ul li {
+    text-align: center;
+}
+
+.header__nav ul li a {
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.5rem;
+    transition: all 0.2s ease-in;
+}
+.header__nav ul li a:hover {
+    border-bottom: 2px solid #bdefa7;
 }
 
 .drawer__nav ul{
