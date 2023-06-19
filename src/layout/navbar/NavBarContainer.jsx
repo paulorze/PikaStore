@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { useState } from "react";
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 
 const NavBarContainer = ({cantidadProductos}) => {
     const theme = useTheme();
