@@ -9,7 +9,7 @@ function App() {
       mode: 'dark',
       contrastThreshold: 4.5,
       primary: {
-        main: '#E0AAFF',
+        main: '#7B2CBF',
       },
       secondary: {
         main: '#bdefa7',
@@ -20,8 +20,9 @@ function App() {
       },
       fuente: {
         main: '#000000',
-        contrastPrimary: '#000000',
-        contrastSecondary: '#FFFFFF'
+      },
+      fuenteSecondary: {
+        main: '#FFFFFF'
       }
     }
   })
@@ -39,22 +40,22 @@ function App() {
         paper: '#E0AAFF',
       },
       fuente: {
-        main: '#FFFFFF',
-        contrastPrimary: '#FFFFFF',
-        dark: '#000000'
+        main: '#FFFFFF'
+      },
+      fuenteSecondary: {
+        main: '#000000'
       }
     }
   })
 
   const [theme, setTheme] = useState(true)
   const cambiarTema = ()=> {
-    console.log('te cambie el tema')
     setTheme(!theme)
   }
 
   return (
     <ThemeProvider theme={theme ? themeLight : themeDark}>
-      <HomeContainer cambiarTema = {cambiarTema}/>
+      <HomeContainer cambiarTema = {cambiarTema} tema = {theme}/>
     </ThemeProvider>
   )
 }

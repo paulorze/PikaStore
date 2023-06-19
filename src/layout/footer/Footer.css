@@ -1,5 +1,4 @@
 footer {
-    margin-top: 1rem;
     padding: 1rem;
     width: 100%;
     font-size: 1.25rem;
@@ -34,7 +33,7 @@ footer h4 {
     text-decoration: none;
     border-bottom: 2px solid transparent;
     padding-bottom: 0.5rem;
-    transition: all 0.2s ease-in;
+    transition: border 0.2s ease-in;
 }
 .footer__menu ul li a:hover {
     border-bottom: 2px solid #bdefa7;

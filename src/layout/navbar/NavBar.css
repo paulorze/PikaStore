@@ -54,7 +54,7 @@ header {
     text-decoration: none;
     border-bottom: 2px solid transparent;
     padding-bottom: 0.5rem;
-    transition: all 0.2s ease-in;
+    transition: border 0.2s ease-in;
 }
 .header__nav ul li a:hover {
     border-bottom: 2px solid #bdefa7;
