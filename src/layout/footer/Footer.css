@@ -2,6 +2,7 @@ footer {
     padding: 1rem;
     width: 100%;
     font-size: 1.25rem;
+    position: relative;
 }
 
 footer h4 {
@@ -47,4 +48,21 @@ footer h4 {
 .footer__redes ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .footer__menu ul {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (width >= 1200px) {
+    .footer__menu ul {
+        display: flex;
+        flex-direction: row;
+    }
 }

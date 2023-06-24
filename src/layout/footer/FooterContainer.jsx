@@ -8,85 +8,155 @@ const FooterContainer = () => {
     const theme = useTheme();
 
     return (
-        <footer style={{
-            backgroundColor: theme.palette.primary.main,
-            color: theme.palette.fuente.main
-        }}>
-            <Grid container spacing={1}>
-                <Grid item xs={12} md={4} className="footer__menu" style={{
-                    flexDirection : 'column'
-                }}>
+        <footer 
+            style={{
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.fuente.main
+            }}
+        >
+            <Grid 
+                container 
+                spacing={1}
+            >
+                <Grid 
+                    item 
+                    xs={12} 
+                    md={4} 
+                    className="footer__menu" 
+                    style={{
+                        flexDirection : 'column'
+                    }}
+                >
                     <h4>
                         Menú
                     </h4>
                     <ul>
                         <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
+                            <a href="#" 
+                                style={{
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
+                            <a href="#" 
+                                style={{
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
                                 Tattoo
                             </a>
                         </li>
                         <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
+                            <a href="#" 
+                                style={{
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
                                 Store
                             </a>
                         </li>
                         <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
-                                About Us
+                            <a href="#" 
+                                style={{
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
+                                About
                             </a>
                         </li>
                         <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
+                            <a href="#" 
+                                style={{
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
                                 Contacto
                             </a>
                         </li>
                     </ul>
                 </Grid>
-                <Grid item xs={12} md={4} className="footer__redes" style={{
-                    flexDirection : 'column'
-                }}>
+                <Grid 
+                    item 
+                    xs={12} 
+                    md={4} 
+                    className="footer__redes" 
+                    style={{
+                        flexDirection : 'column'
+                    }}
+                >
                     <h4>Mis Redes</h4>
                     <ul>
                         <li>
-                            <IconButton aria-label="Icono Instagram" href="https://www.instagram.com/mypika_tattoo" target="_blank" color="fuente">
-                                <InstagramIcon fontSize="large"/>
+                            <IconButton 
+                                aria-label="Icono Instagram" 
+                                href="https://www.instagram.com/mypika_tattoo" 
+                                target="_blank" 
+                                color="fuente"
+                            >
+                                <InstagramIcon 
+                                    fontSize="large"
+                                />
                             </IconButton>
                         </li>
                         <li>
-                            <IconButton aria-label="Icono Twitter" href="https://twitter.com/MyPika_Tattoo" target="_blank" color="fuente">
-                                <TwitterIcon fontSize="large"/>
+                            <IconButton 
+                                aria-label="Icono Twitter" 
+                                href="https://twitter.com/MyPika_Tattoo" 
+                                target="_blank" 
+                                color="fuente"
+                            >
+                                <TwitterIcon 
+                                    fontSize="large"
+                                />
                             </IconButton>
                         </li>
                         <li>
-                            <IconButton aria-label="Icono Twitch" href="https://twitch.tv/mypika_channel" target="_blank" color="fuente">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"/></svg>
+                            <IconButton 
+                                aria-label="Icono Twitch" 
+                                href="https://twitch.tv/mypika_channel" 
+                                target="_blank" 
+                                color="fuente"
+                            >
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="48" 
+                                    height="48" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z" 
+                                        fillRule="evenodd" 
+                                        clipRule="evenodd" 
+                                        fill="currentColor"
+                                    />
+                                </svg>
                             </IconButton>
                         </li>
                         <li>
-                            <IconButton aria-label="Icono Cafecito" href="https://cafecito.app/mypika314" target="_blank" color="fuente">
-                                <FreeBreakfastOutlinedIcon fontSize="large"/>
+                            <IconButton 
+                                aria-label="Icono Cafecito" 
+                                href="https://cafecito.app/mypika314" 
+                                target="_blank" 
+                                color="fuente"
+                            >
+                                <FreeBreakfastOutlinedIcon 
+                                    fontSize="large"
+                                />
                             </IconButton>
                         </li>
                     </ul>
                 </Grid>
-                <Grid item xs={12} md={4} className="footer__ubicacion" style={{
-                    flexDirection : 'column'
-                }}>
+                <Grid 
+                    item 
+                    xs={12} 
+                    md={4} 
+                    className="footer__ubicacion" 
+                    style={{
+                        flexDirection : 'column'
+                    }}
+                >
                     <h4>
                         Dónde estamos...
                     </h4>

@@ -4,22 +4,9 @@
 }
 
 .filtrar__paper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.filtrar__opciones {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.filtrar__opciones li {
-    margin: 1rem;
     padding: 1rem;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }

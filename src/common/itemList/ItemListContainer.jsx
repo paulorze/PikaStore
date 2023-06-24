@@ -1,15 +1,26 @@
-import { useTheme } from "@mui/material"
-import ItemList from "./ItemList"
+import { Paper, useTheme } from '@mui/material';
+import CardContainer from '../card/CardContainer';
+import './ItemList.css';
 
-const ItemListContainer = () => {
-    const greeting = 'Bienvenido, nuevo usuario';
+const ItemListContainer = ({products, carritoAgregar}) => {
     const theme = useTheme();
-
     return (
-        <ItemList 
-            greeting = {greeting}
-            theme = {theme}
-        />
+        <section 
+            className='products'
+            style={{
+                backgroundColor : theme.palette.background.default
+            }}
+        >
+            <Paper className='products__container'>
+                {products.map((product)=>(
+                    <CardContainer
+                        key={product['id']}
+                        product={product}
+                        carritoAgregar = {carritoAgregar}
+                    />
+                ))}
+            </Paper>
+        </section>
     )
 }
 

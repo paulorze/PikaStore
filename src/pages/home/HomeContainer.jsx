@@ -1,15 +1,10 @@
-import { useState } from "react"
 import Home from "./Home"
 
-const HomeContainer = ({cambiarTema, tema}) => {
-    const [cantidadProductos, setCantidadProductos] = useState(0);
-    const agregarProductos = () => {
-        setCantidadProductos(cantidadProductos + 1)
-    }
+const HomeContainer = ({carrito, carritoAgregar, cambiarTema, tema}) => {
     return (
-        <Home 
-            funcion = {agregarProductos}
-            cantidadProductos = {cantidadProductos}
+        <Home
+            carrito = {carrito}
+            carritoAgregar = {carritoAgregar}
             cambiarTema = {cambiarTema}
             tema = {tema}
         />

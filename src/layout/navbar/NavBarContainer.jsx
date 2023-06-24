@@ -2,7 +2,7 @@ import { useTheme } from "@mui/material";
 import { useState } from "react";
 import NavBar from "./NavBar";
 
-const NavBarContainer = ({cantidadProductos}) => {
+const NavBarContainer = ({carrito, cambiarTema, tema}) => {
     const theme = useTheme();
     const [openMenu,setOpenMenu] = useState(false)
     const abrirMenu = ()=> {
@@ -11,10 +11,12 @@ const NavBarContainer = ({cantidadProductos}) => {
 
     return (
         <NavBar 
-            cantidadProductos = {cantidadProductos}
+            carrito = {carrito}
             abrirMenu = {abrirMenu}
             openMenu = {openMenu}
             theme = {theme}
+            cambiarTema = {cambiarTema}
+            tema= {tema}
         />
     )
 }
