@@ -28,15 +28,13 @@ footer h4 {
 
 .footer__menu ul li {
     text-align: center;
-}
-
-.footer__menu ul li a {
-    text-decoration: none;
+    cursor: pointer;
     border-bottom: 2px solid transparent;
     padding-bottom: 0.5rem;
     transition: border 0.2s ease-in;
 }
-.footer__menu ul li a:hover {
+
+.footer__menu ul li:hover {
     border-bottom: 2px solid #bdefa7;
 }
 

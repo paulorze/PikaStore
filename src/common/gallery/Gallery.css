@@ -1,0 +1,10 @@
+.gallery__item {
+    filter: grayscale(75%);
+    cursor: pointer;
+    transition: filter 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.gallery__item:hover {
+    filter: none;
+}

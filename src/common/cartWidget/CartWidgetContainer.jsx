@@ -1,9 +1,11 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge, IconButton } from '@mui/material';
 
-const CartWidgetContainer = ({cantidadProducto}) => {
+const CartWidgetContainer = ({cantidadProducto, changePage}) => {
     return (
-        <IconButton>
+        <IconButton
+            onClick={()=>{changePage('cart')}}
+        >
             <Badge
                 badgeContent={cantidadProducto} 
                 color="secondary" 

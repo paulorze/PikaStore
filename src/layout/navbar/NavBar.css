@@ -54,15 +54,13 @@ header {
 
 .header__nav ul li {
     text-align: center;
-}
-
-.header__nav ul li a {
-    text-decoration: none;
+    cursor: pointer;
     border-bottom: 2px solid transparent;
     padding-bottom: 0.5rem;
     transition: border 0.2s ease-in;
 }
-.header__nav ul li a:hover {
+
+.header__nav ul li:hover {
     border-bottom: 2px solid #bdefa7;
 }
 

@@ -1,0 +1,22 @@
+.tattoo__section {
+    padding: 1rem;
+}
+
+.tattoo__cabecera {
+    padding: 1rem;
+}
+
+.tattoo__cabecera__titulo {
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+.tattoo__cabecera__texto {
+    margin: 1rem;
+    margin-bottom: 2rem;
+    text-indent: 1rem;
+}
+
+.tattoo__cuerpo {
+    padding: 1rem;
+}

@@ -1,0 +1,16 @@
+.store__section {
+    padding: 1rem;
+}
+
+.store__cabecera {
+    padding: 1rem;
+}
+
+.store__cuerpo {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

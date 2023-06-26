@@ -1,9 +1,7 @@
-import { useTheme } from "@mui/material";
 import { useState } from 'react';
 import ItemFilter from './ItemFilter';
 
-const ItemFilterContainer = ({findProducts, filterProducts,parametroBusqueda,modificarParametroBusqueda, resetProducts}) => {
-    const theme = useTheme();
+const ItemFilterContainer = ({findItems, filterItems,parametroBusqueda,modificarParametroBusqueda, resetItems, filterParams}) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -15,16 +13,16 @@ const ItemFilterContainer = ({findProducts, filterProducts,parametroBusqueda,mod
 
     return (
         <ItemFilter
-            theme = {theme}
             anchorEl = {anchorEl}
             open = {open}
             handleClick = {handleClick}
             handleClose = {handleClose}
-            findProducts = {findProducts}
-            filterProducts = {filterProducts}
+            findItems = {findItems}
+            filterItems = {filterItems}
             parametroBusqueda = {parametroBusqueda}
             modificarParametroBusqueda = {modificarParametroBusqueda}
-            resetProducts = {resetProducts}
+            resetItems = {resetItems}
+            filterParams = {filterParams}
         />
     )
 }

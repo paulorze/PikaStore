@@ -1,19 +1,19 @@
 import { Paper, Typography } from "@mui/material";
-import './Home.css';
+import './About.css';
 
-const Home = ({theme}) => {
+const About = ({theme}) => {
     return (
         <section
-            className="home__section"
+            className="about__section"
             style={{
                 backgroundColor : theme.palette.background.default
             }}
         >
             <Paper
-                className="home__paper"
+                className="about__paper"
             >
                 <h1>
-                    Pika | Anime - Manga Tattoo
+                    Pika | About
                 </h1>
                     <Typography>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur totam neque sunt eum quis obcaecati vel, temporibus perspiciatis modi quasi facilis sit, et accusamus assumenda aliquid iure odio placeat fugiat?
@@ -32,4 +32,4 @@ const Home = ({theme}) => {
     )
 }
 
-export default Home
+export default About

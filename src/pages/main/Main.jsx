@@ -1,22 +1,25 @@
-import NavBarContainer from "../../layout/navbar/NavBarContainer"
-import HomeContainer from "../home/HomeContainer"
-import FooterContainer from "../../layout/footer/FooterContainer"
-import StoreContainer from "../store/StoreContainer"
+import { themeDark, themeLight } from '../../themes';
+import { ThemeProvider } from "@mui/material";
+import NavBarContainer from "../../layout/navbar/NavBarContainer";
 
+import FooterContainer from "../../layout/footer/FooterContainer";
 
-const Main = ({carrito, carritoAgregar,cambiarTema, tema}) => {
+const Main = ({theme, carrito, cambiarTema, renderPage, changePage}) => {
     return (
-        <>
+        <ThemeProvider
+        theme={theme ? themeLight : themeDark}
+        >
             <NavBarContainer
                 carrito={carrito}
                 cambiarTema = {cambiarTema}
-                tema= {tema}
+                tema= {theme}
+                changePage = {changePage}
             />
-            <StoreContainer
-                carritoAgregar={carritoAgregar}
+            {renderPage()}
+            <FooterContainer
+                changePage = {changePage}
             />
-            <FooterContainer/>
-        </>
+        </ThemeProvider>
     )
 }
 

@@ -4,7 +4,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FreeBreakfastOutlinedIcon from '@mui/icons-material/FreeBreakfastOutlined';
 import './Footer.css';
 
-const FooterContainer = () => {
+const FooterContainer = ({changePage}) => {
     const theme = useTheme();
 
     return (
@@ -31,50 +31,30 @@ const FooterContainer = () => {
                         Menú
                     </h4>
                     <ul>
-                        <li>
-                            <a href="#" 
-                                style={{
-                                    color: theme.palette.fuente.main
-                                }}
-                            >
-                                Home
-                            </a>
+                        <li
+                            onClick={()=>{changePage('home')}}
+                        >
+                            Home
                         </li>
-                        <li>
-                            <a href="#" 
-                                style={{
-                                    color: theme.palette.fuente.main
-                                }}
-                            >
-                                Tattoo
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" 
-                                style={{
-                                    color: theme.palette.fuente.main
-                                }}
-                            >
-                                Store
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" 
-                                style={{
-                                    color: theme.palette.fuente.main
-                                }}
-                            >
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" 
-                                style={{
-                                    color: theme.palette.fuente.main
-                                }}
-                            >
-                                Contacto
-                            </a>
+                        <li
+                            onClick={()=>{changePage('tattoo')}}
+                        >
+                            Tattoo
+                        </li>                        
+                        <li
+                            onClick={()=>{changePage('store')}}
+                        >
+                            Store
+                        </li>                        
+                        <li
+                            onClick={()=>{changePage('about')}}
+                        >
+                            About
+                        </li>                        
+                        <li
+                            onClick={()=>{changePage('contacto')}}
+                        >
+                            Contacto
                         </li>
                     </ul>
                 </Grid>

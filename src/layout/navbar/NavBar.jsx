@@ -1,13 +1,14 @@
 import { Grid, IconButton } from "@mui/material";
 import Drawer from '@mui/material/Drawer';
 import CartWidgetContainer from "../../common/cartWidget/CartWidgetContainer";
-import HambMenu from "../../common/hambMenu/HambMenu";
+import MenuIcon from '@mui/icons-material/Menu';
+
 import ThemeToggle from "../../common/themeToggle/ThemeToggle";
 import './NavBar.css';
 
 
 
-const NavBar = ({carrito, abrirMenu, openMenu, theme, cambiarTema, tema}) => {
+const NavBar = ({carrito, abrirMenu, openMenu, theme, cambiarTema, tema, changePage}) => {
     return (
         <header style={{
             backgroundColor: theme.palette.primary.main,
@@ -32,40 +33,30 @@ const NavBar = ({carrito, abrirMenu, openMenu, theme, cambiarTema, tema}) => {
                 }} md={8}>
                     <nav className="header__nav">
                     <ul>
-                        <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
-                                Home
-                            </a>
+                        <li
+                            onClick={()=>{changePage('home')}}
+                        >
+                            Home
                         </li>
-                        <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
-                                Tattoo
-                            </a>
+                        <li
+                            onClick={()=>{changePage('tattoo')}}
+                        >
+                            Tattoo
                         </li>
-                        <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
-                                Store
-                            </a>
+                        <li
+                            onClick={()=>{changePage('store')}}
+                        >
+                            Store
                         </li>
-                        <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
-                                About
-                            </a>
+                        <li
+                            onClick={()=>{changePage('about')}}
+                        >
+                            About
                         </li>
-                        <li>
-                            <a href="#" style={{
-                                color: theme.palette.fuente.main
-                            }}>
-                                Contacto
-                            </a>
+                        <li
+                            onClick={()=>{changePage('contacto')}}
+                        >
+                            Contacto
                         </li>
                     </ul>
                     </nav>
@@ -79,7 +70,7 @@ const NavBar = ({carrito, abrirMenu, openMenu, theme, cambiarTema, tema}) => {
                     }}
                 >
                     <IconButton>
-                        <HambMenu 
+                        <MenuIcon
                             className="header__menu__icono"  
                         />
                     </IconButton>
@@ -105,6 +96,7 @@ const NavBar = ({carrito, abrirMenu, openMenu, theme, cambiarTema, tema}) => {
                     <CartWidgetContainer 
                         cantidadProducto = {carrito.length} 
                         className="header__cartWidget__icon"
+                        changePage = {changePage}
                     />
                 </Grid>
             </Grid>
@@ -116,10 +108,31 @@ const NavBar = ({carrito, abrirMenu, openMenu, theme, cambiarTema, tema}) => {
                 >
                     <nav className="drawer__nav">
                         <ul>
-                            <li>Home</li>
-                            <li>Store</li>
-                            <li>About Us</li>
-                            <li>Contacto</li>
+                            <li
+                                onClick={()=>{changePage('home')}}
+                            >
+                                Home
+                            </li>
+                            <li
+                            onClick={()=>{changePage('tattoo')}}
+                            >
+                                Tattoo
+                            </li>
+                            <li
+                                onClick={()=>{changePage('store')}}
+                            >
+                                Store
+                            </li>
+                            <li
+                                onClick={()=>{changePage('about')}}
+                            >
+                                About Us
+                            </li>
+                            <li
+                                onClick={()=>{changePage('contacto')}}
+                            >
+                                Contacto
+                            </li>
                         </ul>
                     </nav>
             </Drawer>

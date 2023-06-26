@@ -1,13 +1,14 @@
 import { useTheme } from "@mui/material"
-import Home from "./Home"
+import About from "./About";
 
-const HomeContainer = () => {
+const AboutContainer = () => {
     const theme = useTheme();
+
     return (
-        <Home
+        <About
             theme = {theme}
         />
     )
 }
 
-export default HomeContainer
+export default AboutContainer
