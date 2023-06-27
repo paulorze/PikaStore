@@ -1,5 +1,5 @@
 import { Paper, Typography } from "@mui/material";
-import CartItemContainer from "../../common/cartItem/cartItemContainer";
+import CartItemContainer from "../../common/cartItem/CartItemContainer";
 import './Cart.css'
 
 const Cart = ({theme, carrito}) => {
