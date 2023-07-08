@@ -1,21 +1,25 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge, IconButton } from '@mui/material';
+import { Link } from "react-router-dom";
 
-const CartWidgetContainer = ({cantidadProducto, changePage}) => {
+
+const CartWidgetContainer = ({cantidadProducto}) => {
     return (
-        <IconButton
-            onClick={()=>{changePage('cart')}}
+        <Link
+            to={'/cart'}
         >
-            <Badge
-                badgeContent={cantidadProducto} 
-                color="secondary" 
-                showZero 
-                overlap="circular" 
-                aria-label={`Cantidad de productos en el carrito ${cantidadProducto}`}
-            >
-                <ShoppingCartIcon />
-            </Badge>
-        </IconButton>
+            <IconButton>
+                <Badge
+                    badgeContent={cantidadProducto} 
+                    color="secondary" 
+                    showZero 
+                    overlap="circular" 
+                    aria-label={`Cantidad de productos en el carrito ${cantidadProducto}`}
+                >
+                    <ShoppingCartIcon />
+                </Badge>
+            </IconButton>
+        </Link>
     )
 }
 

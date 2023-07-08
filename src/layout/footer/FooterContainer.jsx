@@ -4,7 +4,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FreeBreakfastOutlinedIcon from '@mui/icons-material/FreeBreakfastOutlined';
 import './Footer.css';
 
-const FooterContainer = ({changePage}) => {
+const FooterContainer = () => {
     const theme = useTheme();
 
     return (
@@ -31,30 +31,65 @@ const FooterContainer = ({changePage}) => {
                         Menú
                     </h4>
                     <ul>
-                        <li
-                            onClick={()=>{changePage('home')}}
-                        >
-                            Home
+                    <li>
+                            <Link
+                                to={'/'}
+                                className="link"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
+                                Home
+                            </Link>
                         </li>
-                        <li
-                            onClick={()=>{changePage('tattoo')}}
-                        >
-                            Tattoo
-                        </li>                        
-                        <li
-                            onClick={()=>{changePage('store')}}
-                        >
-                            Store
-                        </li>                        
-                        <li
-                            onClick={()=>{changePage('about')}}
-                        >
-                            About
-                        </li>                        
-                        <li
-                            onClick={()=>{changePage('contacto')}}
-                        >
-                            Contacto
+                        <li>
+                            <Link
+                                to={'/tattoo'}
+                                className="link"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
+                                Tattoo
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to={'/store'}
+                                className="link"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
+                                Store
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to={'/about'}
+                                className="link"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to={'/contacto'}
+                                className="link"
+                                style={{
+                                    textDecoration: 'none',
+                                    color: theme.palette.fuente.main
+                                }}
+                            >
+                                Contacto
+                            </Link>
                         </li>
                     </ul>
                 </Grid>

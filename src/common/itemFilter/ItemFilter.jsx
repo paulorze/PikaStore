@@ -2,8 +2,9 @@ import { Grid, IconButton, MenuItem, Menu, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import TuneIcon from '@mui/icons-material/Tune';
+import { Link } from "react-router-dom";
 
-const ItemFilter = ({anchorEl, open, handleClick, handleClose, findItems, filterItems, parametroBusqueda, modificarParametroBusqueda, resetItems, filterParams}) => {
+const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda, modificarParametroBusqueda, filterParams, theme, changeQuery, checkURL}) => {
     return (
         <Grid
             container
@@ -26,17 +27,18 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, findItems, filter
                 display={'flex'}
                 justifyContent={'center'}
             >
-                <IconButton
-                    color='secondary'
-                    onClick={()=>{
-                        findItems(parametroBusqueda)
-                    }}
+                <Link
+                    to={`./store/search?=${parametroBusqueda}`}
                 >
-                    <SearchIcon
-                        fontSize='large'
+                    <IconButton
                         color='secondary'
-                    />
-                </IconButton>
+                    >
+                        <SearchIcon
+                            fontSize='large'
+                            color='secondary'
+                        />
+                    </IconButton>
+                </Link>
             </Grid>
             <Grid item
                 xs = {4}
@@ -44,17 +46,18 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, findItems, filter
                 display={'flex'}
                 justifyContent={'center'}
             >
-                <IconButton
-                    color='secondary'
-                    onClick={()=>{
-                        resetItems()
-                    }}
+                <Link
+                    to={'/store'}
                 >
-                    <RestartAltIcon
-                        fontSize='large'
+                    <IconButton
                         color='secondary'
-                    />
-                </IconButton>
+                    >
+                        <RestartAltIcon
+                            fontSize='large'
+                            color='secondary'
+                        />
+                    </IconButton>
+                </Link>
             </Grid>
             <Grid item
                 xs = {4}
@@ -86,21 +89,27 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, findItems, filter
                 >
                     {filterParams.map((param)=>(
                         <MenuItem
+                        key={param.key}
                         onClick={()=>{
-                            handleClose;
-                            filterItems(param)
+                            handleClose();
+                            changeQuery('category', param.categoria);
+                            checkURL();
                         }}
                         >
-                            {param}
+                            {param.categoria}
                         </MenuItem>
                     ))}                         
                     <MenuItem
-                        onClick={()=>{
-                            handleClose;
-                            filterItems('asdasd')
-                        }}
-                    >
-                        Todos los Productos
+                        onClick={handleClose}>
+                        <Link
+                            to={`/store`}
+                            style={{
+                                color : theme.palette.fuenteSecondary.main,
+                                textDecoration: 'none'
+                            }}
+                        >
+                            Todos los Productos
+                        </Link>
                     </MenuItem>
                 </Menu>
             </Grid>

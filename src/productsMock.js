@@ -160,7 +160,7 @@ export const products = [
     },
     {
         id: 17, 
-        title: "Remera con estampado de paisaje urbano", 
+        title: "Remera con estampado de paisaje", 
         tags: "remera paisaje sailor moon", 
         price: 190, 
         stock: 15, 

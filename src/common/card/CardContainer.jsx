@@ -1,7 +1,8 @@
 import { Button } from '@mui/material';
 import { useTheme } from '@emotion/react';
-import './Card.css';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
+import './Card.css';
 
 const CardContainer = ({product, carritoAgregar}) => {
     const theme = useTheme();
@@ -24,12 +25,14 @@ const CardContainer = ({product, carritoAgregar}) => {
                 <img src={product['img']} alt="Imagen del producto" />
             </div>
             <div className="card__bottom">
-                <h2>
-                    {product['title']}
-                </h2>
-                <h3>
-                    $ {product['price']}
-                </h3>
+                <div className='card__bottom__text'>
+                    <h2>
+                        {product['title']}
+                    </h2>
+                    <h3>
+                        $ {product['price']}
+                    </h3>
+                </div>
                 <div className="card__bottom__cantidadProducto">
                     <Button
                         variant='contained'
@@ -59,6 +62,16 @@ const CardContainer = ({product, carritoAgregar}) => {
                     >
                         Agregar al Carrito
                     </Button>
+                    <Link
+                        to={`/product/${product['id']}`}
+                    >
+                        <Button
+                            variant='contained'
+                            color='secondary'
+                        >
+                            Ver Detalles
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>

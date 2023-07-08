@@ -1,8 +1,9 @@
 .card {
     margin: 1rem;
     width: 15rem;
-    height: 25rem;
+    height: 30rem;
     border-radius: 4px;
+    position: relative;
 }
 
 .card__top {
@@ -18,15 +19,40 @@
 }
 
 .card__bottom {
+    height: 15rem;
+    position: relative;
     padding: 0.25rem;
+}
+
+.card__bottom__text {
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 5rem;
+}
+
+.card__bottom__text h2, .card__bottom__text h3 {
+    font-size: 1.5rem;
+}
+
+.card__bottom__cantidadProducto {
+    width: 15rem;
+    position: absolute;
+    bottom: 7rem;
+    display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.card__bottom__cantidadProducto {
+.card__bottom__agregarCarrito {
+    height: 6rem;
+    position: absolute;
+    bottom: 5px;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }

@@ -24,41 +24,6 @@ const MainContainer = () => {
         setCarrito(current => [...current, data]);
     };
 
-    const [page, setPage] = useState('home')
-    const changePage = (param)=>{
-        setPage(param)
-    }
-
-    const renderPage = ()=> {
-        switch (page) {
-            case 'home':
-                return <HomeContainer/>
-                break;
-            case 'store':
-                return <StoreContainer
-                            carritoAgregar={carritoAgregar}
-                        />
-                break;
-            case 'tattoo':
-                return <TattooContainer/>
-                break;
-            case 'about':
-                return <AboutContainer/>
-                break;            
-            case 'contacto':
-                return <ContactoContainer/>
-                break;
-            case 'cart':
-                return <CartContainer
-                            carrito = {carrito}
-                        />
-                break;
-            default:
-                return <HomeContainer/>
-                break;
-        }
-    }
-
     return (
         <Main
             theme={theme}

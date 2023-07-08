@@ -4,7 +4,7 @@ import NavBarContainer from "../../layout/navbar/NavBarContainer";
 
 import FooterContainer from "../../layout/footer/FooterContainer";
 
-const Main = ({theme, carrito, cambiarTema, renderPage, changePage}) => {
+const Main = ({theme, carrito, cambiarTema}) => {
     return (
         <ThemeProvider
         theme={theme ? themeLight : themeDark}
@@ -13,11 +13,6 @@ const Main = ({theme, carrito, cambiarTema, renderPage, changePage}) => {
                 carrito={carrito}
                 cambiarTema = {cambiarTema}
                 tema= {theme}
-                changePage = {changePage}
-            />
-            {renderPage()}
-            <FooterContainer
-                changePage = {changePage}
             />
         </ThemeProvider>
     )
