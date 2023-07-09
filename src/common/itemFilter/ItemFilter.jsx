@@ -4,7 +4,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import TuneIcon from '@mui/icons-material/Tune';
 import { Link } from "react-router-dom";
 
-const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda, modificarParametroBusqueda, filterParams, theme, changeQuery, checkURL}) => {
+const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda, modificarParametroBusqueda, checkForEnter, filterParams, changeQuery, deleteQuery}) => {
     return (
         <Grid
             container
@@ -19,6 +19,7 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda
                     color='secondary'
                     fullWidth
                     onChange={modificarParametroBusqueda}
+                    onKeyDown={checkForEnter}
                 />
             </Grid>
             <Grid item
@@ -27,18 +28,17 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda
                 display={'flex'}
                 justifyContent={'center'}
             >
-                <Link
-                    to={`./store/search?=${parametroBusqueda}`}
+                <IconButton
+                    color='secondary'
+                    onClick={()=>{
+                        changeQuery('search',parametroBusqueda)
+                    }}
                 >
-                    <IconButton
+                    <SearchIcon
+                        fontSize='large'
                         color='secondary'
-                    >
-                        <SearchIcon
-                            fontSize='large'
-                            color='secondary'
-                        />
+                    />
                     </IconButton>
-                </Link>
             </Grid>
             <Grid item
                 xs = {4}
@@ -93,23 +93,18 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda
                         onClick={()=>{
                             handleClose();
                             changeQuery('category', param.categoria);
-                            checkURL();
                         }}
                         >
                             {param.categoria}
                         </MenuItem>
                     ))}                         
                     <MenuItem
-                        onClick={handleClose}>
-                        <Link
-                            to={`/store`}
-                            style={{
-                                color : theme.palette.fuenteSecondary.main,
-                                textDecoration: 'none'
-                            }}
-                        >
-                            Todos los Productos
-                        </Link>
+                        onClick={()=>{
+                            handleClose();
+                            deleteQuery();
+                        }}
+                    >
+                        Todos los Productos
                     </MenuItem>
                 </Menu>
             </Grid>

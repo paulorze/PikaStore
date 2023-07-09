@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import ItemFilter from './ItemFilter';
-import { useTheme } from '@mui/material';
 
-const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filterParams, checkURL}) => {
-    const theme = useTheme();
+const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filterParams, searchParams, setSearchParams}) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -13,18 +11,20 @@ const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filt
         setAnchorEl(null);
     };
 
+    const checkForEnter = (e)=>{
+        e.key === 'Enter' && changeQuery('search', parametroBusqueda)
+    };
+
     //Creamos la funcion que modifique la URL al hacer click en alguno de los items para filtrar o buscar.
     const changeQuery = (key, value)=> {
-        //Tomamos la url actual
-        const querystring = window.location.search;
-        const params = new URLSearchParams(querystring);
-        //Le agregamos la key y el value que le corresponden a cada item
-        params.set(key, value);
-        //Reflejamos esta nueva url en el navegador
-        window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
-    }
+        searchParams.set(key, value);
+        setSearchParams(searchParams);
+    };
 
-
+    const deleteQuery = () =>{
+        searchParams.delete('category')
+        setSearchParams(searchParams);
+    };
 
     return (
         <ItemFilter
@@ -34,10 +34,10 @@ const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filt
             handleClose = {handleClose}
             parametroBusqueda = {parametroBusqueda}
             modificarParametroBusqueda = {modificarParametroBusqueda}
+            checkForEnter={checkForEnter}
             filterParams = {filterParams}
-            theme = {theme}
             changeQuery = {changeQuery}
-            checkURL = {checkURL}
+            deleteQuery = {deleteQuery}
         />
     )
 }

@@ -2,10 +2,6 @@ header {
     padding: 1rem;
 }
 
-.MuiGrid-root {
-    padding: 0 !important; 
-}
-
 .header__logo, .header__menu, .header__toggleTheme, .header__cartWidget {
     margin: 0;
     padding: 0;

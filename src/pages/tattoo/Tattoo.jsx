@@ -4,7 +4,7 @@ import GalleryContainer from "../../common/gallery/GalleryContainer";
 import './Tattoo.css';
 
 
-const Tattoo = ({theme, desktop, tablet, foundItems, findItems, filterItems, filteredItems, parametroBusqueda, modificarParametroBusqueda, resetItems, filterParams}) => {
+const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBusqueda, filterParams, searchParams, setSearchParams, items}) => {
     return (
         <>
             <section
@@ -28,12 +28,11 @@ const Tattoo = ({theme, desktop, tablet, foundItems, findItems, filterItems, fil
                         Si te gust&oacute; alguno, ponete en contacto conmigo para reservar un turno y hacerlo tuyo para siempre.
                     </Typography>
                     <ItemFilterContainer
-                        findItems = {findItems}
-                        filterItems = {filterItems}
                         parametroBusqueda = {parametroBusqueda}
                         modificarParametroBusqueda = {modificarParametroBusqueda}
-                        resetItems = {resetItems}
                         filterParams={filterParams}
+                        searchParams={searchParams}
+                        setSearchParams={setSearchParams}
                     /> 
                 </Paper>
             </section>
@@ -49,7 +48,7 @@ const Tattoo = ({theme, desktop, tablet, foundItems, findItems, filterItems, fil
                         gap={8}
                         cols = {desktop ? 3 : tablet ? 2 : 1}
                     >
-                        {(filteredItems.length >= 1 ? filteredItems : foundItems).map((design)=>(
+                        {items.map((design)=>(
                             <GalleryContainer
                                 design = {design}
                             />

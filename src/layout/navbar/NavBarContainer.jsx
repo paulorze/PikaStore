@@ -37,7 +37,7 @@ const NavBarContainer = () => {
                 tema= {tema}
             />
             <main>
-                <Outlet/>
+                <Outlet context={[carritoAgregar, carrito]}/>
             </main>
         </ThemeProvider>
     )
