@@ -1,24 +1,7 @@
-import { themeDark, themeLight } from '../../themes';
-import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import NavBar from "./NavBar";
-import { Outlet } from "react-router-dom";
 
-const NavBarContainer = () => {
-    
-    const [tema, setTema] = useState(true)
-    const cambiarTema = ()=> {
-        setTema(!tema)
-    }
-
-    const [carrito, setCarrito] = useState([]);
-    const carritoAgregar = (producto,cantidad)=>{
-        const data = {
-            ...producto,
-            quantity: cantidad
-        };
-        setCarrito(current => [...current, data]);
-    };
+const NavBarContainer = ({cambiarTema, tema}) => {
     
     const [openMenu,setOpenMenu] = useState(false)
     const abrirMenu = ()=> {
@@ -26,20 +9,12 @@ const NavBarContainer = () => {
     }
 
     return (
-        <ThemeProvider
-        theme={tema ? themeLight : themeDark}
-        >
-            <NavBar 
-                carrito = {carrito}
-                abrirMenu = {abrirMenu}
-                openMenu = {openMenu}
-                cambiarTema = {cambiarTema}
-                tema= {tema}
-            />
-            <main>
-                <Outlet context={[carritoAgregar, carrito]}/>
-            </main>
-        </ThemeProvider>
+        <NavBar 
+            abrirMenu = {abrirMenu}
+            openMenu = {openMenu}
+            cambiarTema = {cambiarTema}
+            tema= {tema}
+        />
     )
 }
 

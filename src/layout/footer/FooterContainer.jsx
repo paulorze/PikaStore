@@ -3,6 +3,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FreeBreakfastOutlinedIcon from '@mui/icons-material/FreeBreakfastOutlined';
 import './Footer.css';
+import { Link } from "react-router-dom";
 
 const FooterContainer = () => {
     const theme = useTheme();

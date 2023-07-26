@@ -1,12 +1,18 @@
 import { Button } from '@mui/material';
 import { useTheme } from '@emotion/react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
+import { CartContext } from '../../context/CartContext';
 import './Card.css';
 
 const CardContainer = ({product, carritoAgregar}) => {
     const theme = useTheme();
-    const [cantidadProducto, setCantidadProducto] = useState(1);
+
+    const {getQuantityByID} = useContext(CartContext)
+
+    let cantidad = getQuantityByID(product.id);
+
+    const [cantidadProducto, setCantidadProducto] = useState(cantidad);
     const cantidadAgregar = ()=> {
         setCantidadProducto(cantidadProducto + 1)
     };

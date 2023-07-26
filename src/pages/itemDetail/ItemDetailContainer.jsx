@@ -1,7 +1,8 @@
-import { useOutletContext, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { products } from "../../productsMock";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Button, Grid, Paper, useTheme } from "@mui/material";
+import { CartContext } from '../../context/CartContext';
 import './ItemDetail.css';
 
 const ItemDetailContainer = () => {
@@ -20,7 +21,7 @@ const ItemDetailContainer = () => {
         setCantidadProducto(cantidadProducto - 1)
     };
 
-  const [carritoAgregar] = useOutletContext(); 
+    const {carrito, carritoAgregar} = useContext(CartContext);
 
   useEffect(()=> {
     let promesa = new Promise ((res)=>{

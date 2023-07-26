@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { disenos } from "../../disenos";
 import { useState } from "react";
@@ -7,7 +8,7 @@ import Tattoo from "./Tattoo";
 const TattooContainer = () => {
     const theme = useTheme();
 
-    const filterParams = ['Digimon', 'Dragon Ball', 'Pokemon','Sailor Moon', 'SpyXFamily']
+    const filterParams = [{'key' : 1, 'categoria' : 'Digimon'}, {'key' : 2, 'categoria' : 'Dragon Ball'}, {'key' : 3, 'categoria' : 'Pokemon'}, {'key' : 4, 'categoria' :'Sailor Moon'}, {'key' : 5, 'categoria' : 'SpyXFamily'}]
 
     const desktop =  useMediaQuery('(min-width:1200px)');
     const tablet = useMediaQuery('(min-width:750px)')
@@ -21,6 +22,8 @@ const TattooContainer = () => {
         setParametroBusqueda(event.target.value)
     };
 
+    const resetValue = '/tattoo';
+
     useEffect(()=>{
         let filteredProducts;
         //Creamos las constantes que corresponden a los parametros de busqueda y de categorias
@@ -31,7 +34,7 @@ const TattooContainer = () => {
         //Si existe la query category, filtramos los productos que cumplan con el requisito
         filteredProducts
             ? (category && (filteredProducts = filteredProducts.filter(product => product.category === category)))
-            : (category && (filteredProducts = products.filter(product => product.category === category)))
+            : (category && (filteredProducts = disenos.filter(product => product.category === category)))
 
         const fetchItems = new Promise((res)=> {
             res(filteredProducts ? filteredProducts : disenos)
@@ -56,6 +59,7 @@ const TattooContainer = () => {
             searchParams = {searchParams}
             setSearchParams = {setSearchParams}
             items = {items}
+            resetValue={resetValue}
         />
     )
 }

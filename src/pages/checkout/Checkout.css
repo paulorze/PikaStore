@@ -1,0 +1,35 @@
+main {
+    min-height: 53.25vh;
+}
+
+.checkout {
+    padding: 1rem;
+}
+
+.checkout__paper {
+    padding: 1rem;
+}
+
+.checkout__titulo {
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+.checkout__form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MuiTextField-root {
+    margin: 1rem;
+}
+
+.checkout__botones {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

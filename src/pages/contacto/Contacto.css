@@ -1,3 +1,7 @@
+main {
+    min-height: 53.25vh;
+}
+
 .contacto__section, .contacto__paper {
     padding: 1rem;
 }

@@ -1,3 +1,7 @@
+main {
+    min-height: 53.25vh;
+}
+
 .home__section, .home__paper {
     padding: 1rem;
 }

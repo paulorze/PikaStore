@@ -1,7 +1,7 @@
 import { Grid, IconButton, Typography } from "@mui/material";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-const CartItemContainer = ({carrito}) => {
+const CartItemContainer = ({carrito, carritoQuitarPorID}) => {
     return (
         <>
             <Grid
@@ -39,7 +39,9 @@ const CartItemContainer = ({carrito}) => {
                             item
                             xs={1}
                         >
-                            <IconButton>
+                            <IconButton
+                                onClick={()=>carritoQuitarPorID(product.id)}
+                            >
                                 <HighlightOffIcon
                                     color="error"
                                 />

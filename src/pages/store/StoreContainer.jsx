@@ -1,8 +1,9 @@
 import { products } from '../../productsMock';
-import { useEffect, useState } from "react";
-import { useOutletContext, useSearchParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useTheme } from "@mui/material";
 import Store from './Store';
+import { CartContext } from '../../context/CartContext';
 
 const StoreContainer = () => {
     const theme = useTheme();
@@ -19,7 +20,9 @@ const StoreContainer = () => {
         setParametroBusqueda(event.target.value)
     };
 
-    const [carritoAgregar] = useOutletContext();
+    const resetValue = '/store';
+
+    const {carritoAgregar} = useContext(CartContext)
 
     useEffect(()=>{
         let filteredProducts;
@@ -55,6 +58,7 @@ const StoreContainer = () => {
             setSearchParams = {setSearchParams}
             items = {items}
             carritoAgregar = {carritoAgregar}
+            resetValue={resetValue}
         />
     )
 }

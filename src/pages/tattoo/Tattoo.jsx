@@ -4,9 +4,13 @@ import GalleryContainer from "../../common/gallery/GalleryContainer";
 import './Tattoo.css';
 
 
-const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBusqueda, filterParams, searchParams, setSearchParams, items}) => {
+const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBusqueda, filterParams, searchParams, setSearchParams, items, resetValue}) => {
     return (
-        <>
+        <main
+            style={{
+                backgroundColor: theme.palette.background.default
+            }}
+        >
             <section
                 className="tattoo__section"
                 style={{
@@ -33,6 +37,7 @@ const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBu
                         filterParams={filterParams}
                         searchParams={searchParams}
                         setSearchParams={setSearchParams}
+                        resetValue={resetValue}
                     /> 
                 </Paper>
             </section>
@@ -50,13 +55,14 @@ const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBu
                     >
                         {items.map((design)=>(
                             <GalleryContainer
+                                key={design.id}
                                 design = {design}
                             />
                         ))}
                     </ImageList>
                 </Paper>
             </section>
-        </>
+        </main>
     )
 }
 

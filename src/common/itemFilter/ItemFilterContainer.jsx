@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ItemFilter from './ItemFilter';
 
-const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filterParams, searchParams, setSearchParams}) => {
+const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filterParams, searchParams, setSearchParams, resetValue}) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -38,6 +38,7 @@ const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filt
             filterParams = {filterParams}
             changeQuery = {changeQuery}
             deleteQuery = {deleteQuery}
+            resetValue = {resetValue}
         />
     )
 }

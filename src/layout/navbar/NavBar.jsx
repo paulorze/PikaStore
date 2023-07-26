@@ -8,7 +8,7 @@ import './NavBar.css';
 
 
 
-const NavBar = ({carrito, abrirMenu, openMenu, cambiarTema, tema}) => {
+const NavBar = ({abrirMenu, openMenu, cambiarTema, tema}) => {
     const theme = useTheme();
     
 
@@ -131,7 +131,6 @@ const NavBar = ({carrito, abrirMenu, openMenu, cambiarTema, tema}) => {
                     className="header__cartWidget"
                 >
                     <CartWidgetContainer 
-                        cantidadProducto = {carrito.length} 
                         className="header__cartWidget__icon"
                     />
                 </Grid>

@@ -3,10 +3,14 @@ import CardContainer from "../../common/card/CardContainer";
 import { Paper } from "@mui/material";
 import './Store.css';
 
-const Store = ({theme, parametroBusqueda, modificarParametroBusqueda, filterParams, searchParams, setSearchParams, items, carritoAgregar}) => {
+const Store = ({theme, parametroBusqueda, modificarParametroBusqueda, filterParams, searchParams, setSearchParams, items, carritoAgregar,resetValue}) => {
     
     return (
-        <>
+        <main
+            style={{
+                backgroundColor: theme.palette.background.default
+            }}
+        >
             <section
                 className="store__section"
                 style={{
@@ -22,6 +26,7 @@ const Store = ({theme, parametroBusqueda, modificarParametroBusqueda, filterPara
                         filterParams = {filterParams}
                         searchParams = {searchParams}
                         setSearchParams = {setSearchParams}
+                        resetValue={resetValue}
                     />
                 </Paper>
             </section>
@@ -43,7 +48,7 @@ const Store = ({theme, parametroBusqueda, modificarParametroBusqueda, filterPara
                     ))}
                 </Paper>
             </section>
-        </>
+        </main>
     )
 }
 

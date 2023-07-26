@@ -1,7 +1,23 @@
+main {
+    min-height: 53.25vh;
+}
+
 .cart__section, .cart__paper {
     padding: 1rem;
 }
 
 .cart__paper {
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.buttonContainer {
+    align-self: flex-end;
+    min-width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }

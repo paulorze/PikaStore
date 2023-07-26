@@ -4,7 +4,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import TuneIcon from '@mui/icons-material/Tune';
 import { Link } from "react-router-dom";
 
-const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda, modificarParametroBusqueda, checkForEnter, filterParams, changeQuery, deleteQuery}) => {
+const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda, modificarParametroBusqueda, checkForEnter, filterParams, changeQuery, deleteQuery, resetValue}) => {
     return (
         <Grid
             container
@@ -47,7 +47,7 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda
                 justifyContent={'center'}
             >
                 <Link
-                    to={'/store'}
+                    to={resetValue}
                 >
                     <IconButton
                         color='secondary'
