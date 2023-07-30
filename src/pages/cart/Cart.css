@@ -1,16 +1,22 @@
 main {
     min-height: 53.25vh;
+    font-size: 1rem;
 }
 
-.cart__section, .cart__paper {
+.cart__section{
     padding: 1rem;
 }
 
 .cart__paper {
+    padding: 1rem 0;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.cart__paper h1 {
+    margin: 1rem;
 }
 
 .buttonContainer {

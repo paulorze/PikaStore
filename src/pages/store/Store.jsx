@@ -1,16 +1,16 @@
 import ItemFilterContainer from "../../common/itemFilter/ItemFilterContainer"
 import CardContainer from "../../common/card/CardContainer";
-import { Paper } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
+import SkeletonStoreContainer from "../../common/skeletonStore/SkeletonStoreContainer";
 import './Store.css';
 
-const Store = ({theme, parametroBusqueda, modificarParametroBusqueda, filterParams, searchParams, setSearchParams, items, carritoAgregar,resetValue}) => {
-    
+const Store = ({theme, filterParams, searchParams, setSearchParams, items}) => {
     return (
         <main
             style={{
                 backgroundColor: theme.palette.background.default
             }}
-        >
+        >   
             <section
                 className="store__section"
                 style={{
@@ -21,12 +21,9 @@ const Store = ({theme, parametroBusqueda, modificarParametroBusqueda, filterPara
                     className="store__cabecera"
                 >
                     <ItemFilterContainer
-                        parametroBusqueda = {parametroBusqueda}
-                        modificarParametroBusqueda = {modificarParametroBusqueda}
                         filterParams = {filterParams}
                         searchParams = {searchParams}
                         setSearchParams = {setSearchParams}
-                        resetValue={resetValue}
                     />
                 </Paper>
             </section>
@@ -39,13 +36,17 @@ const Store = ({theme, parametroBusqueda, modificarParametroBusqueda, filterPara
                 <Paper
                     className="store__cuerpo"
                 >   
-                    {(items).map((product)=>(
-                        <CardContainer
-                            key={product.id}
-                            product={product}
-                            carritoAgregar = {carritoAgregar}
-                        />
-                    ))}
+                    {(items.length === 0 && searchParams.size == 0) ? (
+                        <SkeletonStoreContainer/>
+                    ) : (items.length > 0) ? (
+                        (items).map((product)=>(
+                            product.stock >= 1 &&
+                                <CardContainer
+                                    key={product.id}
+                                    product={product}
+                                />
+                    ))) : <Typography> Tu búsqueda no arrojó ningún resultado. </Typography> 
+                    }
                 </Paper>
             </section>
         </main>

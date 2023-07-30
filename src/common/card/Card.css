@@ -34,13 +34,16 @@
 }
 
 .card__bottom__text h2, .card__bottom__text h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .card__bottom__cantidadProducto {
-    width: 15rem;
+    min-width: 11rem;
+    max-width: 15rem;
     position: absolute;
     bottom: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -55,4 +58,10 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+}
+
+@media screen and (min-width: 480px ){
+    .card__bottom__text h2, .card__bottom__text h3 {
+        font-size: 1.5rem;
+    }
 }

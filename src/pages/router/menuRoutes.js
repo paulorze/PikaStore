@@ -6,7 +6,7 @@ import ContactoContainer from '../../pages/contacto/ContactoContainer';
 import CartContainer from '../../pages/cart/CartContainer';
 import ItemDetailContainer from "../../pages/itemDetail/ItemDetailContainer";
 import CheckoutContainer from '../checkout/CheckoutContainer';
-
+import Login from '../login/LoginContainer';
 
 export const routes = [
     {
@@ -45,8 +45,13 @@ export const routes = [
         Element: CheckoutContainer
     },
     {
-        key: 'Produc:ID', 
+        key: 'Product:ID', 
         path : '/product/:id',
         Element: ItemDetailContainer
+    },
+    {
+        key: 'Login', 
+        path : '/login',
+        Element: Login
     }
 ]

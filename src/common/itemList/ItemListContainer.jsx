@@ -1,9 +1,11 @@
-import { Paper, useTheme } from '@mui/material';
+import { useContext } from 'react';
+import { Paper } from '@mui/material';
+import { ThemeContext } from '../../context/ThemeContext';
 import CardContainer from '../card/CardContainer';
 import './ItemList.css';
 
 const ItemListContainer = ({products, carritoAgregar}) => {
-    const theme = useTheme();
+    const {theme} = useContext(ThemeContext)
     return (
         <section 
             className='products'

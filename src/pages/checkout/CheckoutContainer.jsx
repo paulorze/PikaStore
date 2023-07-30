@@ -1,120 +1,57 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
+import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
-import { Button, Paper, TextField, useTheme } from '@mui/material';
 import { useFormik } from 'formik';
-import * as Yup from "yup"
-import './Checkout.css';
+import * as Yup from "yup";
+import { serverTimestamp } from 'firebase/firestore';
+import useAddDoc from '../../utils/hooks/useAddDoc';
+import useUpdateDoc from '../../utils/hooks/useUpdateDoc';
+import Checkout from './Checkout';
 
 const CheckoutContainer = () => {
-    const theme = useTheme();
-
-    const navigate = useNavigate()
+    const {theme} = useContext(ThemeContext)
+    const {carrito, carritoVaciar, getTotalPrice} = useContext(CartContext);
+    const navigate = useNavigate();
 
     const {handleSubmit, handleChange, errors} = useFormik({
         initialValues: {
             name: "",
             mail: "",
-            address: "",
+            postalCode: "",
             phone: ""
         },
         onSubmit: (data) => {
-            console.log(data)
-            navigate('/store')
+            let total = getTotalPrice();
+            let order = {
+                buyer: data,
+                items : carrito,
+                total,
+                date : serverTimestamp()
+            };
+            useAddDoc('orders', order, navigate, carritoVaciar);
+            carrito.forEach((producto)=>{
+                useUpdateDoc('products',producto.id, {stock: producto.stock - producto.quantity})
+            });
         },
         validationSchema: Yup.object({
             name: Yup.string().required("Este campo es obligatorio").min(5,"Su nombre debe contener al menos 5 caracteres").max(20, "Su nombre no puede contener mas de 20 caracteres"),
-            mail: Yup.string().required("Este campo es obligatorio").email("Por favor, ingrese un mail válido"),
-
+            mail: Yup.string().required("Por favor, ingrese un mail válido").email("Por favor, ingrese un mail válido"),
+            postalCode: Yup.string().required("Este campo es obligatorio"),
+            phone: Yup.string().required("Este campo es obligatorio")
         }),
         validateOnChange: false
     })
 
-    const errorTextinput = (type, label, name, helperText)=> {
-        return (
-            <TextField
-                style={{
-                    margin: '1rem',
-                    width: '50vw'
-                }}
-                error
-                size='small'
-                variant='outlined'
-                type= {type}
-                label= {label}
-                name= {name}
-                helperText= {helperText} 
-                onChange={handleChange}
-            />
-        )
-    }
-
-    const validatedTextinput = (type, label, name, placeholder)=> {
-        return (
-            <TextField
-                style={{
-                    margin: '1rem',
-                    width: '50vw'
-                }}
-                size='small'
-                variant='outlined'
-                type= {type}
-                label= {label}
-                name= {name}
-                placeholder= {placeholder} 
-                onChange={handleChange}
-            />
-        )
-    }
-
     return (
-        <main
-            style={{
-                backgroundColor: theme.palette.background.default
-            }}
-        >
-            <section 
-                className='checkout'
-                style={{
-                    backgroundColor: theme.palette.background.default
-                }}
-            >
-                <Paper 
-                    className='checkout__paper'
-                >
-                    <h1
-                        className='checkout__titulo'
-                    >
-                        Checkout
-                    </h1>
-                    <form 
-                        className='checkout__form'
-                        onSubmit={handleSubmit}
-                    >
-                        {(errors.name) ? errorTextinput('text', 'Nombre', 'name', errors.name) : validatedTextinput('text', 'Nombre', 'name', 'Ingrese su nombre')}
-                        {(errors.mail) ? errorTextinput('email', 'Mail', 'mail', errors.mail) : validatedTextinput('email', 'Mail', 'mail', 'Ingrese su mail')}
-                        {(errors.address) ? errorTextinput('text', 'Dirección', 'address', errors.address) : validatedTextinput('text', 'Dirección', 'address', 'Ingrese su dirección')}
-                        {(errors.phone) ? errorTextinput('text', 'Teléfono', 'phone', errors.phone) : validatedTextinput('text', 'Teléfono', 'phone', 'Ingrese su teléfono')}
-                        <div
-                            className='checkout__botones'
-                        >
-                            <Button
-                                type='submit'
-                                variant='contained'
-                                color='secondary'
-                            >
-                                Enviar
-                            </Button>
-                            <Button
-                                type='button'
-                                variant='outlined'
-                                color='error'
-                            >
-                                Cancelar
-                            </Button>
-                        </div>
-                    </form>
-                </Paper>
-            </section>
-        </main>
+        <Checkout
+            theme = {theme}
+            carrito = {carrito}
+            getTotalPrice = {getTotalPrice}
+            handleSubmit = {handleSubmit}
+            handleChange = {handleChange}
+            errors = {errors}
+        />
     )
 }
 

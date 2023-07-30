@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { useTheme } from "@mui/material";
-import Cart from "./Cart";
+import { ThemeContext } from "../../context/ThemeContext";
 import { CartContext } from '../../context/CartContext';
+import Cart from "./Cart";
 
 
 const CartContainer = () => {
-    const theme = useTheme();
-    const {carrito, carritoVaciar, carritoQuitarPorID, getTotalPrice} = useContext(CartContext);
+    const {theme} = useContext(ThemeContext)
+    const {carrito, carritoVaciarConfirmar, getTotalPrice} = useContext(CartContext);
 
     let total = getTotalPrice(); 
     
@@ -14,8 +14,7 @@ const CartContainer = () => {
         <Cart
             theme = {theme}
             carrito = {carrito}
-            carritoVaciar = {carritoVaciar}
-            carritoQuitarPorID = {carritoQuitarPorID}
+            carritoVaciarConfirmar = {carritoVaciarConfirmar}
             total= {total}
         />
     )

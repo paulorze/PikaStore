@@ -1,4 +1,4 @@
-import { Grid, IconButton, useTheme } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import Drawer from '@mui/material/Drawer';
 import CartWidgetContainer from "../../common/cartWidget/CartWidgetContainer";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -8,16 +8,13 @@ import './NavBar.css';
 
 
 
-const NavBar = ({abrirMenu, openMenu, cambiarTema, tema}) => {
-    const theme = useTheme();
-    
-
+const NavBar = ({abrirMenu, openMenu, cambiarTema, temaClaro, theme}) => {
     return (
         <header style={{
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.fuente.main
         }}>
-            <Grid container spacing={1}>
+            <Grid container>
                 <Grid 
                     item xs={5} 
                     md={2} 
@@ -120,7 +117,7 @@ const NavBar = ({abrirMenu, openMenu, cambiarTema, tema}) => {
                 >
                     <ThemeToggle
                         cambiarTema={cambiarTema}
-                        tema = {tema}
+                        temaClaro = {temaClaro}
                         className = 'header__toggleTheme__icon'
                     />
                 </Grid>

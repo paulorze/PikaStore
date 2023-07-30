@@ -1,6 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import { routes } from "./menuRoutes";
 import Layout from "../../layout/Layout";
+import ProtectedRoutes from "./ProtectedRoutes";
+import DashboardContainer from "../dashboard/DashboardContainer";
+import Error404Container from "../error404/Error404Container";
 
 const AppRouter = () => {
     return (
@@ -14,8 +17,11 @@ const AppRouter = () => {
                     />
                 ))}
             </Route>
-        <Route path='/*' element={<h1>Error 404</h1>} />
-    </Routes>
+            <Route element={<ProtectedRoutes/>} >
+                <Route path="/dashboard" element={<DashboardContainer/>} />
+            </Route>
+            <Route path='/*' element={<Error404Container/>} />
+        </Routes>
     )
 }
 

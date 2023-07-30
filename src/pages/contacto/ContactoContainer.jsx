@@ -1,8 +1,9 @@
-import { useTheme } from "@mui/material"
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 import Contacto from "./Contacto";
 
 const ContactoContainer = () => {
-    const theme = useTheme();
+    const {theme} = useContext(ThemeContext)
     return (
         <Contacto
             theme = {theme}

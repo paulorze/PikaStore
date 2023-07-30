@@ -32,4 +32,10 @@ main {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.checkout__cart {
+    border: 1px solid grey;
+    border-radius: 4px;
 }

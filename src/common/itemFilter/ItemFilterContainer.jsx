@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ItemFilter from './ItemFilter';
 
-const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filterParams, searchParams, setSearchParams, resetValue}) => {
+const ItemFilterContainer = ({ filterParams, searchParams, setSearchParams }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -9,6 +9,11 @@ const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filt
     };
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const [parametroBusqueda, setParametroBusqueda] = useState('');
+    const modificarParametroBusqueda = (event) => {
+        setParametroBusqueda(event.target.value)
     };
 
     const checkForEnter = (e)=>{
@@ -26,6 +31,10 @@ const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filt
         setSearchParams(searchParams);
     };
 
+    const resetQuery = ()=> {
+        setSearchParams([])
+    }
+
     return (
         <ItemFilter
             anchorEl = {anchorEl}
@@ -38,7 +47,7 @@ const ItemFilterContainer = ({parametroBusqueda,modificarParametroBusqueda, filt
             filterParams = {filterParams}
             changeQuery = {changeQuery}
             deleteQuery = {deleteQuery}
-            resetValue = {resetValue}
+            resetQuery = {resetQuery}
         />
     )
 }

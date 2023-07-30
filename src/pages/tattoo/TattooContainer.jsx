@@ -1,65 +1,31 @@
-import { useEffect } from "react";
-import { useMediaQuery, useTheme } from "@mui/material";
-import { disenos } from "../../disenos";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
+import { designFilters } from "../../filterparams";
+import useSearch from "../../utils/hooks/useSearch";
 import Tattoo from "./Tattoo";
 
 const TattooContainer = () => {
-    const theme = useTheme();
-
-    const filterParams = [{'key' : 1, 'categoria' : 'Digimon'}, {'key' : 2, 'categoria' : 'Dragon Ball'}, {'key' : 3, 'categoria' : 'Pokemon'}, {'key' : 4, 'categoria' :'Sailor Moon'}, {'key' : 5, 'categoria' : 'SpyXFamily'}]
-
-    const desktop =  useMediaQuery('(min-width:1200px)');
-    const tablet = useMediaQuery('(min-width:750px)')
-
+    const {theme, smDisplay, mdDisplay, lgDisplay, xlDisplay} = useContext(ThemeContext)
+    const filterParams = designFilters;
     const [items, setItems] = useState([])
-
     const [searchParams, setSearchParams] = useSearchParams();
-    
-    const [parametroBusqueda, setParametroBusqueda] = useState('');
-    const modificarParametroBusqueda = (event) => {
-        setParametroBusqueda(event.target.value)
-    };
-
-    const resetValue = '/tattoo';
 
     useEffect(()=>{
-        let filteredProducts;
-        //Creamos las constantes que corresponden a los parametros de busqueda y de categorias
-        const search = searchParams.get('search');  //devuelve null si no se paso esta query
-        const category = searchParams.get('category');
-        //Si existe la query search, filtramos los productos por lo que se busco
-        search && (filteredProducts = disenos.filter(product => product.title.includes(search) || product.tags.includes(search)));
-        //Si existe la query category, filtramos los productos que cumplan con el requisito
-        filteredProducts
-            ? (category && (filteredProducts = filteredProducts.filter(product => product.category === category)))
-            : (category && (filteredProducts = disenos.filter(product => product.category === category)))
-
-        const fetchItems = new Promise((res)=> {
-            res(filteredProducts ? filteredProducts : disenos)
-        });
-
-        fetchItems
-            .then((res)=> {
-                setItems(res)
-            })
-            .catch(error=>console.log(error));
-        
+        useSearch(searchParams, 'designs', setItems)
     },[searchParams])
 
     return (
         <Tattoo
             theme = {theme}
-            desktop = {desktop}
-            tablet = {tablet}
-            parametroBusqueda = {parametroBusqueda}
-            modificarParametroBusqueda = {modificarParametroBusqueda}
+            smDisplay = {smDisplay}
+            mdDisplay = {mdDisplay}
+            lgDisplay = {lgDisplay}
+            xlDisplay = {xlDisplay}
             filterParams={filterParams}
             searchParams = {searchParams}
             setSearchParams = {setSearchParams}
             items = {items}
-            resetValue={resetValue}
         />
     )
 }

@@ -2,9 +2,8 @@ import { Grid, IconButton, MenuItem, Menu, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import TuneIcon from '@mui/icons-material/Tune';
-import { Link } from "react-router-dom";
 
-const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda, modificarParametroBusqueda, checkForEnter, filterParams, changeQuery, deleteQuery, resetValue}) => {
+const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda, modificarParametroBusqueda, checkForEnter, filterParams, changeQuery, deleteQuery, resetQuery}) => {
     return (
         <Grid
             container
@@ -46,18 +45,15 @@ const ItemFilter = ({anchorEl, open, handleClick, handleClose, parametroBusqueda
                 display={'flex'}
                 justifyContent={'center'}
             >
-                <Link
-                    to={resetValue}
+                <IconButton
+                    color='secondary'
+                    onClick={resetQuery}
                 >
-                    <IconButton
+                    <RestartAltIcon
+                        fontSize='large'
                         color='secondary'
-                    >
-                        <RestartAltIcon
-                            fontSize='large'
-                            color='secondary'
-                        />
-                    </IconButton>
-                </Link>
+                    />
+                </IconButton>
             </Grid>
             <Grid item
                 xs = {4}

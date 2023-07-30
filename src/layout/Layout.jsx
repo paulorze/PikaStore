@@ -1,33 +1,23 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom"
-import { ThemeProvider, useTheme} from "@mui/material";
-import FooterContainer from "./footer/FooterContainer"
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import NavBarContainer from "./navbar/NavBarContainer"
-import { themeDark, themeLight } from '../themes';
+import { Outlet } from "react-router-dom"
+import FooterContainer from "./footer/FooterContainer"
+import DashboardFABContainer from "./dashboardFAB/DashboardFABContainer";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = () => {
-    
-    const [tema, setTema] = useState(true)
-    const cambiarTema = ()=> {
-        setTema(!tema)
-    }
-
-    const theme = useTheme()
+    const {admin} = useContext(CartContext)
 
     return (
-        <ThemeProvider
-            theme={tema ? themeLight : themeDark}
-        >
-            <NavBarContainer 
-                cambiarTema = {cambiarTema}
-                tema = {tema}
-            />
+        <>
+            <NavBarContainer/>
             <Outlet/>
             <FooterContainer/>
+            {admin && <DashboardFABContainer/>}
             <ToastContainer />
-        </ThemeProvider>
+        </>
     )
 }
 

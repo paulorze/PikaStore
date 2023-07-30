@@ -2,9 +2,9 @@ import { ImageList, Paper, Typography } from "@mui/material";
 import ItemFilterContainer from "../../common/itemFilter/ItemFilterContainer";
 import GalleryContainer from "../../common/gallery/GalleryContainer";
 import './Tattoo.css';
+import SkeletonTattooContainer from "../../common/skeletonTattoo/SkeletonTattooContainer";
 
-
-const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBusqueda, filterParams, searchParams, setSearchParams, items, resetValue}) => {
+const Tattoo = ({theme, smDisplay, mdDisplay, lgDisplay, xlDisplay, filterParams, searchParams, setSearchParams, items}) => {
     return (
         <main
             style={{
@@ -27,17 +27,17 @@ const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBu
                     </h1>
                     <Typography
                         className="tattoo__cabecera__texto"
+                        style={{
+                            marginBottom: '1rem'
+                        }}
                     >
                         Podras ver todos los diseños para tatuajes que tengo disponibles. Cada tatuaje que hago tiene un diseño &uacute;nico y bajo ning&uacute;n concepto los vuelvo a repetir.
                         Si te gust&oacute; alguno, ponete en contacto conmigo para reservar un turno y hacerlo tuyo para siempre.
                     </Typography>
                     <ItemFilterContainer
-                        parametroBusqueda = {parametroBusqueda}
-                        modificarParametroBusqueda = {modificarParametroBusqueda}
                         filterParams={filterParams}
                         searchParams={searchParams}
                         setSearchParams={setSearchParams}
-                        resetValue={resetValue}
                     /> 
                 </Paper>
             </section>
@@ -48,18 +48,23 @@ const Tattoo = ({theme, desktop, tablet, parametroBusqueda, modificarParametroBu
                 }}
             >
                 <Paper className="tattoo__cuerpo">
-                    <ImageList
+                    {(items.length === 0 && searchParams.size == 0) ? (
+                        <SkeletonTattooContainer/>
+                    ) : (items.length > 0) ? (
+                        <ImageList
                         variant="masonry"
                         gap={8}
-                        cols = {desktop ? 3 : tablet ? 2 : 1}
-                    >
-                        {items.map((design)=>(
-                            <GalleryContainer
-                                key={design.id}
-                                design = {design}
-                            />
-                        ))}
-                    </ImageList>
+                        cols = {xlDisplay ? 5 : lgDisplay? 4 : mdDisplay ? 3 : smDisplay ? 2 : 1}
+                        >
+                            {items.map((design)=>(
+                                <GalleryContainer
+                                    key={design.id}
+                                    design = {design}
+                                />
+                            ))}
+                        </ImageList>
+                    ) : <Typography> Tu búsqueda no arrojó ningún resultado. </Typography> 
+                    }
                 </Paper>
             </section>
         </main>
