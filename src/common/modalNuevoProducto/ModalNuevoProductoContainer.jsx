@@ -15,14 +15,15 @@ const ModalNuevoProductoContainer = ({theme, smDisplay, mdDisplay, openModal, se
             description: product ? product.description : '',
             img: product ? product.img : ''
         },
-        onSubmit: (data) => {
+        onSubmit: (data, {resetForm}) => {
             let item = {...data, tags: data.tags.split(",")}
             if (product) {
-                useUpdateDoc('products',product.id,item)
+                useUpdateDoc('products',product.id,item, refreshItems, setRefreshItems)
+                resetForm()
             } else {
-                useAddDoc('products', item);
-            }
-            setRefreshItems(!refreshItems);
+                useAddDoc({coleccion : 'products', objeto : item, refreshItems : refreshItems, setRefreshItems:setRefreshItems});
+                resetForm()
+            };
             setOpenModal(false);
         },
         validationSchema: Yup.object({

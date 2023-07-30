@@ -29,7 +29,7 @@ const CheckoutContainer = () => {
                 total,
                 date : serverTimestamp()
             };
-            useAddDoc('orders', order, navigate, carritoVaciar);
+            useAddDoc({coleccion : 'orders', objeto : order, navigate : navigate, carritoVaciar : carritoVaciar});
             carrito.forEach((producto)=>{
                 useUpdateDoc('products',producto.id, {stock: producto.stock - producto.quantity})
             });

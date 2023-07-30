@@ -12,12 +12,14 @@ const ModalNuevoDisenoContainer = ({theme, smDisplay, mdDisplay, openModal, setO
             tags: design ? design.tags.toString() : '',
             img: design ? design.img : ''
         },
-        onSubmit: (data) => {
+        onSubmit: (data, {resetForm}) => {
             let item = {...data, tags: data.tags.split(",")}
             if (design) {
-                useUpdateDoc('designs',design.id,item)
+                useUpdateDoc('designs', design.id, item, refreshItems, setRefreshItems);
+                resetForm()
             } else {
-                useAddDoc('designs', item);
+                useAddDoc({coleccion : 'designs', objeto : item, refreshItems : refreshItems, setRefreshItems : setRefreshItems});
+                resetForm()
             }
             setRefreshItems(!refreshItems);
             setOpenModal(false);

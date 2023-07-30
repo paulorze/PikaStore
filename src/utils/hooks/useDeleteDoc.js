@@ -16,7 +16,7 @@ const useDeleteDoc = (coleccion, item, setRefreshItems, refreshItems)=> {
         color: '#ffffff'
     }).then((result) => {
         if (result.isConfirmed) {
-            deleteDoc(doc(db, coleccion, item.id ))
+            deleteDoc(doc(db, coleccion, item.id )).then(res => setRefreshItems(!refreshItems));
             Swal.fire({
                 title: 'Objeto eliminado',
                 text: 'El objeto ha sido eliminado correctamente.',
@@ -24,7 +24,7 @@ const useDeleteDoc = (coleccion, item, setRefreshItems, refreshItems)=> {
                 background: '#7B2CBF',
                 color: '#ffffff',
                 confirmButtonColor: '#bdefa7',
-            }).then(setRefreshItems(!refreshItems));
+            });
         }
     })
 };
